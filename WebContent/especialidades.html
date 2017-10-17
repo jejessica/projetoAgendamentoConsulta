@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="especialidadesModulo">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="js/angular.min.js"></script>
+    <script src="controller/especialidades.js"></script>
+    <link rel="icon" href="imagens/favicon.ico">
+
+    <title>Especialidades</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet">
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body ng-controller="especialidadesController">
+    <div ng-include src="'menus.html'"></div>
+    <!-- Formulário -->
+<hr>
+  <h1 align="center">Cadastro Especialidade</h1>
+    <form class="form-horizontal">
+    <div class="form-group">
+        <label for="codigoEspecialidade" class="col-sm-2 control-label">Código:</label>
+            <div class="col-sm-2">   
+              <input type="text" required ng-model="especialidade.cdEspecialidade" class="form-control" id="codigoEspecialidade" placeholder="Código Especialidade">
+            </div>
+      </div> 
+      <div class="form-group">
+        <label for="nmEspecialidade" class="col-sm-2 control-label">Especialidade:</label>
+            <div class="col-sm-3">   
+              <input type="text" required ng-model="especialidade.nmEspecialidade"class="form-control" id="nmEspecialidade" placeholder="Nome Especialidade">
+            </div>
+             </div> <br><br>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Pesquisar: </label>     
+          <div class="col-sm-3">   
+              <input type="text" ng-model="pesquisaEspecialidade" id="pesquisaEspecialidade" placeholder=" Pesquisar Especialidade ">
+            </div> 
+   
+        <button type="submit" ng-click="limparCampos()" class="btn btn-info">Novo</button>
+        <button ng-disabled="!especialidade.nmEspecialidade" type="submit" ng-click="salvar()" class="btn btn-primary">Salvar</button>
+        <button type="submit" ng-click="excluir()" class="btn btn-danger">Excluir</button>
+   </div> 
+</form>
+<!-- /.Formulário -->
+
+<!-- .Tabela -->
+<div class="container">
+<table class="table table-striped table-hover">
+  <th>Código</th>
+  <th>Especialidade</th>
+  <tr ng-repeat="especialidadesTabela in especialidades | filter:pesquisaEspecialidade" ng-click="selecionaEspecialidade(especialidadesTabela)" >
+      <td>{{especialidadesTabela.cdEspecialidade}}</td>
+      <td>{{especialidadesTabela.nmEspecialidade}}</td>
+  </tr>
+</table>  
+</div>
+    <!-- /.tabela -->
+<hr>
+             
+      <!-- FOOTER -->
+       <footer>
+      <div class="col-md-2 .col-md-offset-2x">
+        <p><a href="#">Back to top</a></p>
+        </div>
+        <div class="col-sm-offset-2">
+        <p> &copy;&nbsp;2017 Agendamento de Consultas. &middot;
+         <a href="#">Privacidae</a> &middot; <a href="#">Termos</a></p>
+         </div>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+
+  </body>
+</html>

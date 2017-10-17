@@ -1,0 +1,8 @@
+{
+	"medicos":
+	[
+            {"crmMedico":"1","nmMedico":"Jorgen" ,"nmEspecialidade":"Oftalmo"},
+            {"crmMedico":"2","nmMedico":"Angelan","nmEspecialidade":"Psicologo"},
+            {"crmMedico":"3","nmMedico":"Briann" ,"nmEspecialidade":"Pediatra"}
+    ]
+}
